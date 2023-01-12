@@ -1,0 +1,123 @@
+* {
+    border: 1px solid red !important;
+    
+  }
+
+html, body {
+  height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('background.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: aliceblue;
+    }
+
+header {
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    
+  }
+
+.imageLayout {
+  box-sizing: border-box;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  margin: 1% 1.5% 1% 1.5%;
+  cursor: pointer;
+}
+
+.square:hover {
+  opacity: 0.7;
+}
+
+.square:after {
+  padding-bottom: 100%;
+}
+
+/* the Modal (Background) */
+.popupModal {
+  display: none; /* hidden by default */
+  flex-direction: row;
+  position: fixed; /* stays in place */
+  z-index: 1; /* sits on top */
+  border: 4px solid blue;
+  border-radius: 10px;
+  width: 60%;
+  height: auto;
+  max-height: 80%;
+  background-color: white;
+  overflow: auto; /* enable scroll if needed */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Modal Content - image */
+.modal-image {
+  margin: auto;
+  /* display: inline-block; */
+  width: 50%;
+  text-align: left;
+  max-width: 500px;
+  vertical-align: middle;
+  float: left;
+}
+
+/* Modal Content - description */
+.popupData {
+  margin: 30px 5px auto;
+  /* display: inline-block; */
+  width: 50%;
+  text-align: right;
+  max-width: 500px;
+  vertical-align: middle;
+  float: left;
+}
+
+.description {
+  text-align: left;
+  margin-left: 5px;
+  
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
