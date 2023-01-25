@@ -179,11 +179,11 @@ for (const imageData of modalData) {
 //     modalImg.src = this.src;
 // }
 
-//all images inside the image modal content class
+//all images inside the image modal content class  (below code sample from https://codepen.io/RileyB/pen/XQyaXy?editors=1010)
 const artImages = document.querySelectorAll('.imageLayout img');
 
-const modalElement = element =>
-  document.querySelector(`.modalPopup ${element}`);
+// const modalElement = element =>
+//   document.querySelector(`.modalPopup ${element}`);
 
 const body = document.querySelector('body');
 
@@ -197,16 +197,10 @@ const modalPopup = document.querySelector('.popupModal');
 
 // loops over each modal content img and adds click event functionality
 artImages.forEach(img => {
-    const data = img.dataset;
     img.addEventListener('click', e => {
       body.style.overflow = 'hidden';
       e.stopPropagation();
       modalPopup.style.display = 'flex';
-      modalElement('h3').innerHTML = data.title;
-      modalElement('h4').innerHTML = data.artistName;
-      modalElement('h5').innerHTML = data.yearCreated;
-      modalElement('p').innerHTML = data.description;
-      modalElement('img').src = img.src;
     });
   });
   
