@@ -168,16 +168,49 @@ for (const imageData of modalData) {
     createdImage.setAttribute('id', imageData.id)
 }
 
-const img = document.getElementById('image01')
-let modalImg = document.getElementsByClassName('image')
-const description = document.getElementsByClassName('popupData')
+// let img = document.getElementById('image01')
+// let modalImg = document.querySelectorAll('.image')
+// let description = document.getElementsByClassName('popupData')
+// console.log(modalImg)
 
 
+// img.onclick = function() {
+//     modal.style.display = 'flex';
+//     modalImg.src = this.src;
+// }
 
-img.onclick = function() {
-    modal.style.display = 'flex';
-    modalImg.src = this.src;
-}
+//all images inside the image modal content class
+const artImages = document.querySelectorAll('.imageLayout img');
+
+const modalElement = element =>
+  document.querySelector(`.modalPopup ${element}`);
+
+const body = document.querySelector('body');
+
+// closes modal on clicking anywhere and adds overflow back
+document.addEventListener('click', () => {
+    body.style.overflow = 'auto';
+    modalPopup.style.display = 'none';
+  });
+
+const modalPopup = document.querySelector('.popupModal');
+
+// loops over each modal content img and adds click event functionality
+artImages.forEach(img => {
+    const data = img.dataset;
+    img.addEventListener('click', e => {
+      body.style.overflow = 'hidden';
+      e.stopPropagation();
+      modalPopup.style.display = 'flex';
+      modalElement('h3').innerHTML = data.title;
+      modalElement('h4').innerHTML = data.artistName;
+      modalElement('h5').innerHTML = data.yearCreated;
+      modalElement('p').innerHTML = data.description;
+      modalElement('img').src = img.src;
+    });
+  });
+  
+
 
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName('close')[0];
