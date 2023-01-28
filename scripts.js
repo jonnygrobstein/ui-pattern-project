@@ -12,7 +12,7 @@ const modal = document.getElementById('myModal');
 const imageLayout = document.getElementsByClassName('imageLayout')
 
 
-// Array to hold the modal data - [Image URL, Artwork Title, Artist Name, Year, Description, id]
+// Array to hold the modal data - [Image URL, Artwork Title, Artist Name, Year, Description, id - id is for unique identifiers when working with APIs]
 let modalData = [
     {
         url: "https://www.artic.edu/iiif/2/25f660ee-f1db-d13b-42a5-56df97c98ba7/full/843,/0/default.jpg",
@@ -160,6 +160,8 @@ let modalData = [
     },
 ]
 
+//This pulls the url from the object and places it in the website 
+
 for (const imageData of modalData) {
     let createdImage = document.createElement("img")
     createdImage.src = imageData.url
@@ -168,19 +170,9 @@ for (const imageData of modalData) {
     createdImage.setAttribute('id', imageData.id)
 }
 
-// let img = document.getElementById('image01')
-// let modalImg = document.querySelectorAll('.image')
-// let description = document.getElementsByClassName('popupData')
-// console.log(modalImg)
-
-
-// img.onclick = function() {
-//     modal.style.display = 'flex';
-//     modalImg.src = this.src;
-// }
 
 //all images inside the image modal content class  (below code sample from https://codepen.io/RileyB/pen/XQyaXy?editors=1010)
-const artImages = document.querySelectorAll('.imageLayout img');
+const artImages = document.querySelectorAll('.imageLayout');
 
 // const modalElement = element =>
 //   document.querySelector(`.modalPopup ${element}`);
@@ -194,15 +186,59 @@ document.addEventListener('click', () => {
   });
 
 const modalPopup = document.querySelector('.popupModal');
+const modalImage = document.getElementById('modal-image');
+const title = document.getElementById('artTitle');
+const artist = document.getElementById('artistName');
+const date = document.getElementById('date');
+const description = document.getElementById('description');
+let index = ""
+window.onclick = element => {
+    console.log(element.target.id)
+}
+
+// function modalRun(picker) {
+//     let currentImage = 
+// }
 
 // loops over each modal content img and adds click event functionality
-artImages.forEach(img => {
-    img.addEventListener('click', e => {
-      body.style.overflow = 'hidden';
-      e.stopPropagation();
-      modalPopup.style.display = 'flex';
-    });
-  });
+// for (let i = 0; i < modalData.length; i++) {
+//     artImages[i].addEventListener('click', e => {
+//         body.style.overflow = 'hidden';
+//         e.stopPropagation();
+//         modalPopup.style.display = 'flex';
+//         index = i;
+//         // modalContent()
+//     })
+// }
+
+ 
+
+
+// function modalContent() {
+//     modalImage.src = modalData[index].url;
+//     title.innerHTML = modalData[index].title;
+//     artist.innerHTML = modalData[index].artistName;
+//     date.innerHTML = modalData[index].yearCreated;
+//     description.innerHTML = modalData[index].description;
+//     // console.log(modalContent)
+//     // console.log(modalImage)
+//     // console.log(title)
+// }
+
+
+
+// artImages.forEach(img => {
+//     img.addEventListener('click', e => {
+//     //   body.style.overflow = 'hidden';
+//     //   e.stopPropagation();
+//     //   modalPopup.style.display = 'flex';
+//       modalImage.src = modalData.url;
+//       title.innerHTML = modalData.title;
+//       artist.innerHTML = modalData.artistName;
+//       date.innerHTML = modalData.yearCreated;
+//       description.innerHTML = modalData.description;
+//     });
+//   });
   
 
 

@@ -71,7 +71,7 @@ header {
 }
 
 /* Modal Content - image */
-.modal-image {
+#modal-image {
   margin: auto;
   /* display: inline-block; */
   width: 50%;
